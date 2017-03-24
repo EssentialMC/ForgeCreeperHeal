@@ -14,7 +14,6 @@ import fr.eyzox.bsc.exception.InvalidValueException;
 
 import java.io.*;
 import java.nio.file.AccessDeniedException;
-import java.nio.file.NoSuchFileException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -25,7 +24,7 @@ public class JSONConfigLoader extends AbstractFileConfigLoader {
     }
 
     @Override
-    public void load(Config config) throws NoSuchFileException, FileNotFoundException, AccessDeniedException, IOException, InvalidValueException {
+    public void load(Config config) throws IOException, InvalidValueException {
         super.load(config);
         InputStream input = null;
         try {
@@ -40,7 +39,7 @@ public class JSONConfigLoader extends AbstractFileConfigLoader {
     }
 
     @Override
-    public void save(Config config) throws FileNotFoundException, AccessDeniedException, IOException {
+    public void save(Config config) throws IOException {
         super.save(config);
         OutputStream output = null;
         try {

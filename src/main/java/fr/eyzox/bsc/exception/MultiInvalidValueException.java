@@ -5,7 +5,7 @@ import java.util.LinkedList;
 
 public class MultiInvalidValueException extends InvalidValueException {
 
-    private final Collection<InvalidValueException> exceptions = new LinkedList<InvalidValueException>();
+    private final Collection<InvalidValueException> exceptions = new LinkedList<>();
 
     public MultiInvalidValueException(String value) {
         super(value);

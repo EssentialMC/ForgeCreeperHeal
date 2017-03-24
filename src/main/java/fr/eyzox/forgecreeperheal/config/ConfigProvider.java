@@ -77,11 +77,6 @@ public class ConfigProvider implements IConfigProvider {
     }
 
     @Override
-    public synchronized void removeConfigListener(IConfigListener listener) {
-        this.listeners.remove(listener);
-    }
-
-    @Override
     public synchronized void loadConfig() {
         config = loadDefaultConfig();
         if (configLoader != null) {

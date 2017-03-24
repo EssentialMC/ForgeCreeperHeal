@@ -23,14 +23,6 @@ public class ConfigOptionGroup {
         this.options.put(option.getName(), option);
     }
 
-    public void removeOption(final String optionName) {
-        this.options.remove(optionName);
-    }
-
-    public void removeOption(final IConfigOption option) {
-        this.removeOption(option.getName());
-    }
-
     public IConfigOption getOption(final String name) {
         return options.get(name);
     }

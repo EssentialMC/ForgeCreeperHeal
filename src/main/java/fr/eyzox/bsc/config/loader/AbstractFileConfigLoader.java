@@ -12,12 +12,12 @@ public abstract class AbstractFileConfigLoader implements IConfigLoader {
     private final File file;
     private final IErrorManager errorManager = new FileErrorManager();
 
-    public AbstractFileConfigLoader(final File file) {
+    AbstractFileConfigLoader(final File file) {
         this.file = file;
     }
 
     @Override
-    public void load(Config config) throws NoSuchFileException, FileNotFoundException, AccessDeniedException, IOException, InvalidValueException {
+    public void load(Config config) throws IOException, InvalidValueException {
         if (!file.exists()) {
             throw new NoSuchFileException(file.getAbsolutePath());
         }
@@ -33,7 +33,7 @@ public abstract class AbstractFileConfigLoader implements IConfigLoader {
     }
 
     @Override
-    public void save(Config config) throws FileNotFoundException, AccessDeniedException, IOException {
+    public void save(Config config) throws IOException {
         if (file.exists()) {
             if (!file.isFile()) {
                 throw new FileNotFoundException(file.getAbsolutePath() + " is not a file");

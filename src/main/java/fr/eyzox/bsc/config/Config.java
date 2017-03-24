@@ -15,14 +15,6 @@ public class Config {
         this.groups.put(optionGroup.getName(), optionGroup);
     }
 
-    public void removeOptionGroup(final ConfigOptionGroup optionGroup) {
-        this.removeOptionGroup(optionGroup.getName());
-    }
-
-    public void removeOptionGroup(final String optionGroupeName) {
-        this.groups.remove(optionGroupeName);
-    }
-
     public ConfigOptionGroup getOptionGroup(final String name) {
         return groups.get(name);
     }

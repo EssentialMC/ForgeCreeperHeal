@@ -22,7 +22,7 @@ public class InvalidValueException extends ConfigException {
         this.value = value;
     }
 
-    public IConfigOption getConfigOption() {
+    private IConfigOption getConfigOption() {
         return configOption;
     }
 
@@ -30,7 +30,7 @@ public class InvalidValueException extends ConfigException {
         this.configOption = configOption;
     }
 
-    public String getExpected() {
+    private String getExpected() {
         return expected;
     }
 

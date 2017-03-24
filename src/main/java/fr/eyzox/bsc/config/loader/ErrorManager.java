@@ -10,9 +10,9 @@ import java.util.List;
 
 public class ErrorManager implements IErrorManager {
 
-    private final List<ConfigException> errors = new LinkedList<ConfigException>();
+    private final List<ConfigException> errors = new LinkedList<>();
 
-    public ErrorManager() {
+    ErrorManager() {
     }
 
     @Override

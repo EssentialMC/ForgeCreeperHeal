@@ -1,15 +1,13 @@
 package fr.eyzox.bsc.config;
 
 public interface IConfigProvider {
-    public Config getConfig();
+    Config getConfig();
 
-    public void addConfigListener(final IConfigListener listener);
+    void addConfigListener(final IConfigListener listener);
 
-    public void removeConfigListener(final IConfigListener listener);
+    void fireConfigChanged();
 
-    public void fireConfigChanged();
+    void loadConfig();
 
-    public void loadConfig();
-
-    public void unloadConfig();
+    void unloadConfig();
 }

@@ -7,11 +7,11 @@ import java.io.PrintWriter;
 import java.util.Collection;
 
 public interface IErrorManager {
-    public void error(ConfigException exception);
+    void error(ConfigException exception);
 
-    public boolean hasErrors();
+    boolean hasErrors();
 
-    public void output(final PrintWriter out) throws IOException;
+    void output(final PrintWriter out) throws IOException;
 
-    public Collection<ConfigException> getErrors();
+    Collection<ConfigException> getErrors();
 }
