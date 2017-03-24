@@ -8,9 +8,9 @@ import net.minecraft.world.World;
 
 public class BedMultiSelector implements IMultiSelector {
 
-	@Override
-	public BlockPos[] getBlockPos(World w, BlockPos pos, IBlockState state) {
-		return new BlockPos[]{pos.offset(((EnumFacing) state.getValue(BlockBed.FACING)).getOpposite())};
-	}
+    @Override
+    public BlockPos[] getBlockPos(World w, BlockPos pos, IBlockState state) {
+        return new BlockPos[]{pos.offset(((EnumFacing) state.getValue(BlockBed.FACING)).getOpposite())};
+    }
 
 }

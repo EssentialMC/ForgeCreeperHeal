@@ -6,20 +6,21 @@ import fr.eyzox.forgecreeperheal.blockdata.BlockData;
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
 
-public class NoDependencyBuilder implements IDependencyBuilder{
+public class NoDependencyBuilder implements IDependencyBuilder {
 
-	private final NoDependency<BlockPos, BlockData> noDependency = new NoDependency<BlockPos, BlockData>();
-	
-	public NoDependencyBuilder() {}
+    private final NoDependency<BlockPos, BlockData> noDependency = new NoDependency<BlockPos, BlockData>();
 
-	@Override
-	public boolean accept(Block in) {
-		return true;
-	}
+    public NoDependencyBuilder() {
+    }
 
-	@Override
-	public DependencyType<BlockPos, BlockData> getDependencies(BlockData data) {
-		return noDependency;
-	}
+    @Override
+    public boolean accept(Block in) {
+        return true;
+    }
+
+    @Override
+    public DependencyType<BlockPos, BlockData> getDependencies(BlockData data) {
+        return noDependency;
+    }
 
 }

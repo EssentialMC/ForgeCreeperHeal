@@ -5,9 +5,9 @@ import net.minecraft.block.properties.PropertyDirection;
 
 public class TrapDoorPropertySelector implements IPropertySelector {
 
-	@Override
-	public PropertyDirection getPropertyDirection() {
-		return BlockTrapDoor.FACING;
-	}
+    @Override
+    public PropertyDirection getPropertyDirection() {
+        return BlockTrapDoor.FACING;
+    }
 
 }

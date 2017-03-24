@@ -4,6 +4,6 @@ import net.minecraft.block.properties.PropertyDirection;
 
 public interface IPropertySelector {
 
-	PropertyDirection getPropertyDirection();
-	
+    PropertyDirection getPropertyDirection();
+
 }

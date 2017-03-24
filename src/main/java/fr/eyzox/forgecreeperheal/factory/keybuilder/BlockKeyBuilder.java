@@ -4,23 +4,23 @@ import net.minecraft.block.Block;
 
 public class BlockKeyBuilder implements IKeyBuilder<Block> {
 
-	private static final BlockKeyBuilder INSTANCE = new BlockKeyBuilder();
-	
-	private BlockKeyBuilder() {
-	}
-	
-	@Override
-	public String convertToString(Block key) {
-		return key.getRegistryName().toString();
-	}
+    private static final BlockKeyBuilder INSTANCE = new BlockKeyBuilder();
 
-	@Override
-	public Block convertToKey(String keyStr) {
-		return Block.getBlockFromName(keyStr);
-	}
-	
-	public static BlockKeyBuilder getInstance() {
-		return INSTANCE;
-	}
+    private BlockKeyBuilder() {
+    }
+
+    public static BlockKeyBuilder getInstance() {
+        return INSTANCE;
+    }
+
+    @Override
+    public String convertToString(Block key) {
+        return key.getRegistryName().toString();
+    }
+
+    @Override
+    public Block convertToKey(String keyStr) {
+        return Block.getBlockFromName(keyStr);
+    }
 
 }

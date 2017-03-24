@@ -6,6 +6,6 @@ import fr.eyzox.forgecreeperheal.factory.IData;
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
 
-public interface IDependencyBuilder extends IData<Block>{
-	public DependencyType<BlockPos, BlockData> getDependencies(final BlockData data);
+public interface IDependencyBuilder extends IData<Block> {
+    public DependencyType<BlockPos, BlockData> getDependencies(final BlockData data);
 }

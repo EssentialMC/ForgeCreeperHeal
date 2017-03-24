@@ -8,18 +8,18 @@ import net.minecraft.util.math.BlockPos;
 
 public class BlockDataDependencyProvider implements IDependencyProvider<BlockPos, BlockData> {
 
-	private final static BlockDataDependencyProvider INSTANCE = new BlockDataDependencyProvider();
-	
-	private BlockDataDependencyProvider() {
-	}
-	
-	public static BlockDataDependencyProvider getInstance() {
-		return INSTANCE;
-	}
-	
-	@Override
-	public DependencyType<BlockPos, BlockData> provideDependency(BlockData data) {
-		return ForgeCreeperHeal.getDependencyFactory().getData(data.getState().getBlock()).getDependencies(data);
-	}
-	
+    private final static BlockDataDependencyProvider INSTANCE = new BlockDataDependencyProvider();
+
+    private BlockDataDependencyProvider() {
+    }
+
+    public static BlockDataDependencyProvider getInstance() {
+        return INSTANCE;
+    }
+
+    @Override
+    public DependencyType<BlockPos, BlockData> provideDependency(BlockData data) {
+        return ForgeCreeperHeal.getDependencyFactory().getData(data.getState().getBlock()).getDependencies(data);
+    }
+
 }

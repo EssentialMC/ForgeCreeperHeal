@@ -7,10 +7,10 @@ import net.minecraft.world.World;
 
 public class HealerUtils {
 
-	private HealerUtils() {
-	}
-	
-	public static void spawnItemStack(World worldIn, BlockPos pos, ItemStack stack) {
-		InventoryHelper.spawnItemStack(worldIn, pos.getX(), pos.getY(), pos.getZ(), stack);
-	}
+    private HealerUtils() {
+    }
+
+    public static void spawnItemStack(World worldIn, BlockPos pos, ItemStack stack) {
+        InventoryHelper.spawnItemStack(worldIn, pos.getX(), pos.getY(), pos.getZ(), stack);
+    }
 }

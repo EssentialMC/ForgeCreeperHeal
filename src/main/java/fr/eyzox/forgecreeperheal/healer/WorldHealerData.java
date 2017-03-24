@@ -1,8 +1,5 @@
 package fr.eyzox.forgecreeperheal.healer;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import fr.eyzox.forgecreeperheal.ForgeCreeperHeal;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagIntArray;
@@ -13,68 +10,71 @@ import net.minecraft.world.WorldServer;
 import net.minecraft.world.storage.MapStorage;
 import net.minecraftforge.common.util.Constants.NBT;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class WorldHealerData extends WorldSavedData {
 
-	public static final String KEY = ForgeCreeperHeal.MODID+":WHD";
-	
-	private final static String CHUNKS_WITH_HEALER_TAG = "chunks";
-	
-	private final Set<ChunkPos> chunksWithHealer = new HashSet<ChunkPos>();
-	
-	public WorldHealerData(String name) {
-		super(name);
-	}
+    public static final String KEY = ForgeCreeperHeal.MODID + ":WHD";
 
-	public void handleChunk(final ChunkPos chunk) {
-		if(this.chunksWithHealer.add(chunk)) {
-			this.markDirty();
-		}
-	}
-	
-	public void unhandleChunk(final ChunkPos chunk) {
-		if(this.chunksWithHealer.remove(chunk)) {
-			this.markDirty();
-		}
-	}
-	
-	public Set<ChunkPos> getChunksWithHealer() {
-		return chunksWithHealer;
-	}
-	
-	@Override
-	public void readFromNBT(NBTTagCompound nbt) {
-		NBTTagList chunksTagList = nbt.getTagList(CHUNKS_WITH_HEALER_TAG, NBT.TAG_INT_ARRAY);
-		for(int i = 0 ; i < chunksTagList.tagCount(); i++) {
-			final int[] array = chunksTagList.getIntArrayAt(i);
-			if(array.length >= 2) {
-				chunksWithHealer.add(new ChunkPos(array[0], array[1]));
-			}else {
-				ForgeCreeperHeal.getLogger().error("Ignoring a chunk with healer (array length < 2)");
-			}
-		}
-		
-		
-	}
+    private final static String CHUNKS_WITH_HEALER_TAG = "chunks";
 
-	@Override
-	public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
-		NBTTagList chunksTagList = new NBTTagList();
-		for(final ChunkPos chunk : chunksWithHealer) {
-			chunksTagList.appendTag(new NBTTagIntArray(new int[]{chunk.chunkXPos, chunk.chunkZPos}));
-		}
-		nbt.setTag(CHUNKS_WITH_HEALER_TAG, chunksTagList);
-		return nbt;
+    private final Set<ChunkPos> chunksWithHealer = new HashSet<ChunkPos>();
 
-	}
-	
-	public static WorldHealerData load(WorldServer w) {
-		MapStorage storage = w.getPerWorldStorage();
-		WorldHealerData result = (WorldHealerData)storage.getOrLoadData(WorldHealerData.class, KEY);
-		if(result == null) {
-			result = new WorldHealerData(KEY);
-			storage.setData(KEY, result);
-		}
-		return result;
-	}
+    public WorldHealerData(String name) {
+        super(name);
+    }
+
+    public static WorldHealerData load(WorldServer w) {
+        MapStorage storage = w.getPerWorldStorage();
+        WorldHealerData result = (WorldHealerData) storage.getOrLoadData(WorldHealerData.class, KEY);
+        if (result == null) {
+            result = new WorldHealerData(KEY);
+            storage.setData(KEY, result);
+        }
+        return result;
+    }
+
+    public void handleChunk(final ChunkPos chunk) {
+        if (this.chunksWithHealer.add(chunk)) {
+            this.markDirty();
+        }
+    }
+
+    public void unhandleChunk(final ChunkPos chunk) {
+        if (this.chunksWithHealer.remove(chunk)) {
+            this.markDirty();
+        }
+    }
+
+    public Set<ChunkPos> getChunksWithHealer() {
+        return chunksWithHealer;
+    }
+
+    @Override
+    public void readFromNBT(NBTTagCompound nbt) {
+        NBTTagList chunksTagList = nbt.getTagList(CHUNKS_WITH_HEALER_TAG, NBT.TAG_INT_ARRAY);
+        for (int i = 0; i < chunksTagList.tagCount(); i++) {
+            final int[] array = chunksTagList.getIntArrayAt(i);
+            if (array.length >= 2) {
+                chunksWithHealer.add(new ChunkPos(array[0], array[1]));
+            } else {
+                ForgeCreeperHeal.getLogger().error("Ignoring a chunk with healer (array length < 2)");
+            }
+        }
+
+
+    }
+
+    @Override
+    public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
+        NBTTagList chunksTagList = new NBTTagList();
+        for (final ChunkPos chunk : chunksWithHealer) {
+            chunksTagList.appendTag(new NBTTagIntArray(new int[]{chunk.chunkXPos, chunk.chunkZPos}));
+        }
+        nbt.setTag(CHUNKS_WITH_HEALER_TAG, chunksTagList);
+        return nbt;
+
+    }
 
 }

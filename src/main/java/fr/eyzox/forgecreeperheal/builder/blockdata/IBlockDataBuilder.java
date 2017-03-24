@@ -9,6 +9,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public interface IBlockDataBuilder extends IData<Block> {
-	public BlockData create(final World w, final BlockPos pos, final IBlockState state);
-	public BlockData create(final NBTTagCompound tag);
+    public BlockData create(final World w, final BlockPos pos, final IBlockState state);
+
+    public BlockData create(final NBTTagCompound tag);
 }

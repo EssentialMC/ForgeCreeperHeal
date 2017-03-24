@@ -5,9 +5,9 @@ import net.minecraft.block.properties.PropertyDirection;
 
 public class LadderPropertySelector implements IPropertySelector {
 
-	@Override
-	public PropertyDirection getPropertyDirection() {
-		return BlockLadder.FACING;
-	}
+    @Override
+    public PropertyDirection getPropertyDirection() {
+        return BlockLadder.FACING;
+    }
 
 }

@@ -5,9 +5,9 @@ import net.minecraft.block.properties.PropertyDirection;
 
 public class WallSignPropertySelector implements IPropertySelector {
 
-	@Override
-	public PropertyDirection getPropertyDirection() {
-		return BlockWallSign.FACING;
-	}
+    @Override
+    public PropertyDirection getPropertyDirection() {
+        return BlockWallSign.FACING;
+    }
 
 }

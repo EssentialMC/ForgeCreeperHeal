@@ -8,9 +8,9 @@ import net.minecraft.world.World;
 
 public class PistonMultiSelector implements IMultiSelector {
 
-	@Override
-	public BlockPos[] getBlockPos(World w, BlockPos pos, IBlockState state) {
-		return new BlockPos[]{pos.offset((EnumFacing) state.getValue(BlockPistonBase.FACING))};
-	}
+    @Override
+    public BlockPos[] getBlockPos(World w, BlockPos pos, IBlockState state) {
+        return new BlockPos[]{pos.offset((EnumFacing) state.getValue(BlockPistonBase.FACING))};
+    }
 
 }

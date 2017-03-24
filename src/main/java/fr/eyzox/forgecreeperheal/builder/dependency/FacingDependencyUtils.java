@@ -5,10 +5,11 @@ import net.minecraft.util.math.BlockPos;
 
 public class FacingDependencyUtils {
 
-	private FacingDependencyUtils() {}
-	
-	public static BlockPos getBlockPos(final BlockPos pos, final EnumFacing facing) {
-		return pos.offset(facing);
-	}
+    private FacingDependencyUtils() {
+    }
+
+    public static BlockPos getBlockPos(final BlockPos pos, final EnumFacing facing) {
+        return pos.offset(facing);
+    }
 
 }

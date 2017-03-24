@@ -5,9 +5,9 @@ import net.minecraft.block.properties.PropertyDirection;
 
 public class TorchPropertySelector implements IPropertySelector {
 
-	@Override
-	public PropertyDirection getPropertyDirection() {
-		return BlockTorch.FACING;
-	}
+    @Override
+    public PropertyDirection getPropertyDirection() {
+        return BlockTorch.FACING;
+    }
 
 }

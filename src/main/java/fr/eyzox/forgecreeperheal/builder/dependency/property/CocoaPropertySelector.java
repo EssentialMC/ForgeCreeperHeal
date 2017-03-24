@@ -5,9 +5,9 @@ import net.minecraft.block.properties.PropertyDirection;
 
 public class CocoaPropertySelector implements IPropertySelector {
 
-	@Override
-	public PropertyDirection getPropertyDirection() {
-		return BlockCocoa.FACING;
-	}
+    @Override
+    public PropertyDirection getPropertyDirection() {
+        return BlockCocoa.FACING;
+    }
 
 }

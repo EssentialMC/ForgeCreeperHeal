@@ -9,16 +9,16 @@ import net.minecraft.world.World;
 
 public class BedBlockDataBuilder extends MultiBlockDataBuilder {
 
-	public BedBlockDataBuilder() {
-		super(BlockBed.class, new BedMultiSelector());
-	}
-	
-	@Override
-	public BlockData create(World w, BlockPos pos, IBlockState state) {
-		if(state.getValue(BlockBed.PART) == BlockBed.EnumPartType.HEAD) {
-			return super.create(w, pos, state);
-		}
-		return null;
-	}
+    public BedBlockDataBuilder() {
+        super(BlockBed.class, new BedMultiSelector());
+    }
+
+    @Override
+    public BlockData create(World w, BlockPos pos, IBlockState state) {
+        if (state.getValue(BlockBed.PART) == BlockBed.EnumPartType.HEAD) {
+            return super.create(w, pos, state);
+        }
+        return null;
+    }
 
 }

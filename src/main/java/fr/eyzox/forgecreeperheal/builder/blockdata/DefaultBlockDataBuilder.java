@@ -9,21 +9,22 @@ import net.minecraft.world.World;
 
 public class DefaultBlockDataBuilder implements IBlockDataBuilder {
 
-	public DefaultBlockDataBuilder() {}
+    public DefaultBlockDataBuilder() {
+    }
 
-	@Override
-	public BlockData create(World world, BlockPos pos, IBlockState state) {
-		if(state.getBlock().isAir(state, world, pos)) return null;
-		return new BlockData(pos, state);
-	}
+    @Override
+    public BlockData create(World world, BlockPos pos, IBlockState state) {
+        if (state.getBlock().isAir(state, world, pos)) return null;
+        return new BlockData(pos, state);
+    }
 
-	@Override
-	public BlockData create(NBTTagCompound tag) {
-		return new BlockData(tag);
-	}
-	
-	@Override
-	public boolean accept(Block block) {
-		return true;
-	}
+    @Override
+    public BlockData create(NBTTagCompound tag) {
+        return new BlockData(tag);
+    }
+
+    @Override
+    public boolean accept(Block block) {
+        return true;
+    }
 }

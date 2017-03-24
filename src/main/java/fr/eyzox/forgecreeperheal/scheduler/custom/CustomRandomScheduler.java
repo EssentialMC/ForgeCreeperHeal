@@ -1,29 +1,28 @@
 package fr.eyzox.forgecreeperheal.scheduler.custom;
 
-import java.util.Collection;
-
 import fr.eyzox.dependencygraph.RandomDependencyGraph;
 import fr.eyzox.dependencygraph.interfaces.IData;
 import fr.eyzox.dependencygraph.interfaces.IDependencyProvider;
 
-public class CustomRandomScheduler<K, D extends IData<K>> implements IScheduler<D>{
+import java.util.Collection;
 
-	private final RandomDependencyGraph<K, D> graph;
-	
-	public CustomRandomScheduler(Collection<? extends D> c, final IDependencyProvider<K, D> provider) {
-		graph = new RandomDependencyGraph<K, D>(c, provider);
-	}
+public class CustomRandomScheduler<K, D extends IData<K>> implements IScheduler<D> {
 
-	@Override
-	public boolean hasNext() {
-		return graph.hasNext();
-	}
+    private final RandomDependencyGraph<K, D> graph;
 
-	@Override
-	public D next() {
-		return graph.poll();
-	}
-	
-	
-	
+    public CustomRandomScheduler(Collection<? extends D> c, final IDependencyProvider<K, D> provider) {
+        graph = new RandomDependencyGraph<K, D>(c, provider);
+    }
+
+    @Override
+    public boolean hasNext() {
+        return graph.hasNext();
+    }
+
+    @Override
+    public D next() {
+        return graph.poll();
+    }
+
+
 }

@@ -5,9 +5,9 @@ import net.minecraft.block.properties.PropertyDirection;
 
 public class BannerHangingPropertySelector implements IPropertySelector {
 
-	@Override
-	public PropertyDirection getPropertyDirection() {
-		return BlockBannerHanging.FACING;
-	}
+    @Override
+    public PropertyDirection getPropertyDirection() {
+        return BlockBannerHanging.FACING;
+    }
 
 }

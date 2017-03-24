@@ -1,6 +1,7 @@
 package fr.eyzox.forgecreeperheal.scheduler.custom;
 
 public interface IScheduler<T> {
-	boolean hasNext();
-	T next();
+    boolean hasNext();
+
+    T next();
 }

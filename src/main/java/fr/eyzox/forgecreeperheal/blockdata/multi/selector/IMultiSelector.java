@@ -5,5 +5,5 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public interface IMultiSelector {
-	public BlockPos[] getBlockPos(World w, BlockPos pos, IBlockState state);
+    public BlockPos[] getBlockPos(World w, BlockPos pos, IBlockState state);
 }

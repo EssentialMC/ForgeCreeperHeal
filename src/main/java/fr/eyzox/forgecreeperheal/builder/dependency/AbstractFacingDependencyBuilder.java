@@ -9,25 +9,25 @@ import net.minecraft.block.Block;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 
-public abstract class AbstractFacingDependencyBuilder extends AbstractFactoryBuilder implements IDependencyBuilder{
+public abstract class AbstractFacingDependencyBuilder extends AbstractFactoryBuilder implements IDependencyBuilder {
 
-	private final IPropertySelector facingProperty;
-	
-	public AbstractFacingDependencyBuilder(Class<? extends Block> clazz, final IPropertySelector facingProperty) {
-		super(clazz);
-		this.facingProperty = facingProperty;
-	}
+    private final IPropertySelector facingProperty;
 
-	@Override
-	public DependencyType<BlockPos, BlockData> getDependencies(BlockData data) {
-		final EnumFacing facing = getEnumFacing(data);
-		return new SingleDependency<BlockPos, BlockData>(FacingDependencyUtils.getBlockPos(data.getPos(), facing));
-	}
-	
-	public IPropertySelector getFacingProperty() {
-		return facingProperty;
-	}
+    public AbstractFacingDependencyBuilder(Class<? extends Block> clazz, final IPropertySelector facingProperty) {
+        super(clazz);
+        this.facingProperty = facingProperty;
+    }
 
-	protected abstract EnumFacing getEnumFacing(final BlockData data);
+    @Override
+    public DependencyType<BlockPos, BlockData> getDependencies(BlockData data) {
+        final EnumFacing facing = getEnumFacing(data);
+        return new SingleDependency<BlockPos, BlockData>(FacingDependencyUtils.getBlockPos(data.getPos(), facing));
+    }
+
+    public IPropertySelector getFacingProperty() {
+        return facingProperty;
+    }
+
+    protected abstract EnumFacing getEnumFacing(final BlockData data);
 
 }
