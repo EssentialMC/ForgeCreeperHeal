@@ -12,6 +12,16 @@ import net.minecraft.server.MinecraftServer;
 
 public class HelpCommand extends ForgeCreeperHealCommands {
 
+	@Override
+	public String getName() {
+		return null;
+	}
+
+	@Override
+	public String getUsage(ICommandSender sender) {
+		return null;
+	}
+
 	private static final class WrappedVanillaHelpCommand extends CommandHelp {
 		@Override
 		protected List<ICommand> getSortedPossibleCommands(ICommandSender sender, MinecraftServer server) {

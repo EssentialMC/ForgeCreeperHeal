@@ -110,7 +110,7 @@ public class ChunkTransform {
                     return null;
                 }
 
-                extendedblockstorage = this.storageArrays[j >> 4] = new ExtendedBlockStorage(j >> 4 << 4, !this.worldObj.provider.getHasNoSky());
+                extendedblockstorage = this.storageArrays[j >> 4] = new ExtendedBlockStorage(j >> 4 << 4, !this.worldObj.provider.hasNoSky());
                 flag = j >= i1;
             }
 

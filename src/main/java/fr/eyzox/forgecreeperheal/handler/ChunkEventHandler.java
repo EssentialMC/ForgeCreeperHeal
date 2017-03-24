@@ -30,7 +30,7 @@ public class ChunkEventHandler implements IEventHandler{
 				
 				healer.setLoaded(true);
 				
-				ForgeCreeperHeal.getHealerManager((WorldServer) event.getWorld()).getLoadedHealers().put(ChunkPos.chunkXZ2Int(event.getChunk().xPosition, event.getChunk().zPosition), healer);
+				ForgeCreeperHeal.getHealerManager((WorldServer) event.getWorld()).getLoadedHealers().put(ChunkPos.asLong(event.getChunk().xPosition, event.getChunk().zPosition), healer);
 			}
 		}
 	}
@@ -42,7 +42,7 @@ public class ChunkEventHandler implements IEventHandler{
 
 		final HealerManager manager = ForgeCreeperHeal.getHealerManager((WorldServer) event.getWorld());
 		
-		final Healer healer = manager.getLoadedHealers().get(ChunkPos.chunkXZ2Int(event.getChunk().xPosition, event.getChunk().zPosition));
+		final Healer healer = manager.getLoadedHealers().get(ChunkPos.asLong(event.getChunk().xPosition, event.getChunk().zPosition));
 		
 		if(healer != null) {
 			
@@ -54,7 +54,7 @@ public class ChunkEventHandler implements IEventHandler{
 			
 			//If chunk is unloaded, unhandle its healer
 			if(!healer.isLoaded()) {
-				manager.getLoadedHealers().remove(ChunkPos.chunkXZ2Int(event.getChunk().xPosition, event.getChunk().zPosition));
+				manager.getLoadedHealers().remove(ChunkPos.asLong(event.getChunk().xPosition, event.getChunk().zPosition));
 			}
 		}
 	}
@@ -64,7 +64,7 @@ public class ChunkEventHandler implements IEventHandler{
 		if(event.getWorld().isRemote) return;
 		final HealerManager manager = ForgeCreeperHeal.getHealerManager((WorldServer)event.getWorld());
 		
-		final Healer healer = manager.getLoadedHealers().get(ChunkPos.chunkXZ2Int(event.getChunk().xPosition, event.getChunk().zPosition));
+		final Healer healer = manager.getLoadedHealers().get(ChunkPos.asLong(event.getChunk().xPosition, event.getChunk().zPosition));
 		if(healer != null) {
 			healer.setLoaded(false);
 		}

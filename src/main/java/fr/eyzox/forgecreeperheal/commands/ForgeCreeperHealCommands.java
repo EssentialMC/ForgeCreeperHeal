@@ -28,17 +28,14 @@ public abstract class ForgeCreeperHealCommands extends CommandBase {
 			new HelpCommand()
 	};
 	
-	@Override
 	public final String getCommandUsage(ICommandSender sender) {
 		return '/'+buildCommandName(BASE_ALIAS)+" [?] "+getFCHUsage();
 	}
 	
-	@Override
 	public final String getCommandName() {
 		return buildCommandName(ForgeCreeperHeal.MODID);
 	}
 	
-	@Override
 	public final List<String> getCommandAliases() {
 		final List<String> aliases = new LinkedList<String>();
 		aliases.add(buildCommandName(BASE_ALIAS));
@@ -63,16 +60,16 @@ public abstract class ForgeCreeperHealCommands extends CommandBase {
 			
 			final ITextComponent head = buildChatMessage(sender, buildTranslationMessage(sender, "fch.command.generic.help.head", new Object[]{buildCommandName(BASE_ALIAS)}));
 			head.getStyle().setColor(TextFormatting.DARK_GREEN);
-			sender.addChatMessage(head);
+			sender.sendMessage(head);
 			
 			final ITextComponent usage = buildTranslationMessage(sender, "fch.command.generic.help.usage",new Object[]{getCommandUsage(sender)});
 			usage.getStyle().setColor(TextFormatting.GRAY);
-			sender.addChatMessage(usage);
+			sender.sendMessage(usage);
 			
 			final String rawHelp = buildTranslationMessage(sender, getHelp()).getFormattedText();
 			final String[] helps = rawHelp.split("\\\\n");
 			for(int i=0; i<helps.length; i++) {
-				sender.addChatMessage(new TextComponentString(helps[i]));
+				sender.sendMessage(new TextComponentString(helps[i]));
 			}
 		}else {
 			_execute(server, sender, args);

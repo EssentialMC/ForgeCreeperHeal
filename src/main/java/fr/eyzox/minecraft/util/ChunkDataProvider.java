@@ -46,7 +46,7 @@ public class ChunkDataProvider<E> extends ConcurrentHashMap<ChunkPos, E>{
 		if(chunk == null) {
 			throw new NullPointerException(NULL_KEY);
 		}
-		return this.put(chunk.getChunkCoordIntPair(), value);
+		return this.put(chunk.getPos(), value);
 	}
 
 	@Override
@@ -81,7 +81,7 @@ public class ChunkDataProvider<E> extends ConcurrentHashMap<ChunkPos, E>{
 		}
 		
 		if(map.remove(this.getMapKey(chunk)) != null) {
-			return super.remove(chunk.getChunkCoordIntPair());
+			return super.remove(chunk.getPos());
 		}else {
 			return null;
 		}
@@ -108,10 +108,10 @@ public class ChunkDataProvider<E> extends ConcurrentHashMap<ChunkPos, E>{
 	}
 	
 	private long getMapKey(final ChunkPos chunk) {
-		return ChunkPos.chunkXZ2Int(chunk.chunkXPos, chunk.chunkZPos);
+		return ChunkPos.asLong(chunk.chunkXPos, chunk.chunkZPos);
 	}
 	
 	private long getMapKey(final Chunk chunk) {
-		return ChunkPos.chunkXZ2Int(chunk.xPosition, chunk.zPosition);
+		return ChunkPos.asLong(chunk.xPosition, chunk.zPosition);
 	}
 }

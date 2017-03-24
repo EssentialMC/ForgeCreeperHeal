@@ -9,7 +9,7 @@ public class VersionCommand extends ForgeCreeperHealCommands {
 
 	@Override
 	public void _execute(MinecraftServer server, ICommandSender sender, String[] args) {
-		sender.addChatMessage(new TextComponentString(ForgeCreeperHeal.MODNAME));
+		sender.sendMessage(new TextComponentString(ForgeCreeperHeal.MODNAME));
 	}
 
 	@Override
@@ -27,4 +27,13 @@ public class VersionCommand extends ForgeCreeperHealCommands {
 		return "";
 	}
 
+	@Override
+	public String getName() {
+		return null;
+	}
+
+	@Override
+	public String getUsage(ICommandSender sender) {
+		return null;
+	}
 }

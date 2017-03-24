@@ -53,7 +53,7 @@ public class TickTimelineFactory {
 			final int chunkZ = healable.getChunkZ();
 			
 			//Retrieve or create DispatchedTimeline for a chunk
-			DispatchedTimeline dispatchedTimeline = dispatchedTimelines.get(ChunkPos.chunkXZ2Int(chunkX, chunkZ));
+			DispatchedTimeline dispatchedTimeline = dispatchedTimelines.get(ChunkPos.asLong(chunkX, chunkZ));
 			if(dispatchedTimeline == null) {
 				dispatchedTimeline = new DispatchedTimeline();
 				dispatchedTimelines.put(new ChunkPos(chunkX, chunkZ), dispatchedTimeline);

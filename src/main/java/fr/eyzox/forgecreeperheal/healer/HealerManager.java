@@ -31,11 +31,11 @@ public class HealerManager {
 	 */
 	public void hook(final Healer healer) {
 		final Chunk chunk = world.getChunkFromChunkCoords(healer.getChunk().xPosition, healer.getChunk().zPosition);
-		final ChunkPos chunkKey = chunk.getChunkCoordIntPair();
+		final ChunkPos chunkKey = chunk.getPos(); // UNSURE
 		
 		healer.setLoaded(true);
 		
-		this.loadedHealers.put(ChunkPos.chunkXZ2Int(chunkKey.chunkXPos, chunkKey.chunkZPos), healer);
+		this.loadedHealers.put(ChunkPos.asLong(chunkKey.chunkXPos, chunkKey.chunkZPos), healer);
 		chunk.setChunkModified();
 		this.worldHealerData.handleChunk(chunkKey);
 	}
@@ -46,7 +46,7 @@ public class HealerManager {
 	 */
 	public void unhook(final ChunkPos chunkKey) {
 		final Chunk chunk = world.getChunkFromChunkCoords(chunkKey.chunkXPos, chunkKey.chunkZPos);
-		this.loadedHealers.remove(ChunkPos.chunkXZ2Int(chunk.xPosition, chunk.zPosition));
+		this.loadedHealers.remove(ChunkPos.asLong(chunk.xPosition, chunk.zPosition));
 		chunk.setChunkModified();
 		this.worldHealerData.unhandleChunk(chunkKey);
 	}
@@ -58,7 +58,7 @@ public class HealerManager {
 	 */
 	public Healer load(final ChunkPos chunkKey) {
 		final Chunk chunk = world.getChunkFromChunkCoords(chunkKey.chunkXPos, chunkKey.chunkZPos);
-		return loadedHealers.get(ChunkPos.chunkXZ2Int(chunk.xPosition, chunk.zPosition));
+		return loadedHealers.get(ChunkPos.asLong(chunk.xPosition, chunk.zPosition));
 	}
 	
 	/**
@@ -103,7 +103,7 @@ public class HealerManager {
 		
 		if(!emptyHealers.isEmpty()) {
 			for(final Healer emptyHealer : emptyHealers) {
-				this.unhook(emptyHealer.getChunk().getChunkCoordIntPair());
+				this.unhook(emptyHealer.getChunk().getPos()); // UNSURE
 			}
 		}
 	}
@@ -119,7 +119,7 @@ public class HealerManager {
 						data.heal(worldHealer);
 					}
 				}
-				this.worldHealerData.unhandleChunk(healer.getChunk().getChunkCoordIntPair());
+				this.worldHealerData.unhandleChunk(healer.getChunk().getPos()); // UNSURE
 			}
 			worldHealer.update(3);
 		}

@@ -35,7 +35,7 @@ public class HealCommand extends ForgeCreeperHealCommands {
 			}
 			
 			final ITextComponent healAllMsg = buildChatMessage(sender, buildTranslationMessage(sender, "fch.command.heal.action.allworld"), MessageType.SUCCESS);
-			sender.addChatMessage(healAllMsg);
+			sender.sendMessage(healAllMsg);
 		}else {
 			WorldServer world = null;
 			final String rawDimId = args.length > 0 ? args[0] : null; 
@@ -57,9 +57,18 @@ public class HealCommand extends ForgeCreeperHealCommands {
 			}else {
 				ForgeCreeperHeal.getHealerManager(world).heal();
 				final ITextComponent healedMsg = buildChatMessage(sender, buildTranslationMessage(sender, "fch.command.heal.action.world", new Object[]{world.getWorldInfo().getWorldName(), world.provider.getDimension()}), MessageType.SUCCESS);
-				sender.addChatMessage(healedMsg);
+				sender.sendMessage(healedMsg);
 			}
 		}
 	}
 
+	@Override
+	public String getName() {
+		return null;
+	}
+
+	@Override
+	public String getUsage(ICommandSender sender) {
+		return null;
+	}
 }

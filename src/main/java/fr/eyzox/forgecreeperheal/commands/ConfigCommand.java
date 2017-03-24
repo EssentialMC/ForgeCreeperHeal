@@ -50,20 +50,29 @@ public class ConfigCommand extends ForgeCreeperHealCommands{
 		if(reload) {
 			ForgeCreeperHeal.getProxy().loadConfig();
 			final ITextComponent reloadMsg = buildChatMessage(sender, buildTranslationMessage(sender, "fch.command.config.action.reload"), MessageType.SUCCESS);
-			sender.addChatMessage(reloadMsg);
+			sender.sendMessage(reloadMsg);
 		}
 		
 		if(shift < args.length) {
 			final ITextComponent sorry = buildChatMessage(sender, buildTranslationMessage(sender, "fch.command.config.action.edit"));
 			sorry.getStyle().setColor(TextFormatting.DARK_RED);
-			sender.addChatMessage(sorry);
+			sender.sendMessage(sorry);
 		}
 		
 		if(save) {
 			final ITextComponent saveMsg = buildChatMessage(sender, buildTranslationMessage(sender, "fch.command.config.action.save"));
 			saveMsg.getStyle().setColor(TextFormatting.DARK_RED);
-			sender.addChatMessage(saveMsg);
+			sender.sendMessage(saveMsg);
 		}
 	}
 
+	@Override
+	public String getName() {
+		return null;
+	}
+
+	@Override
+	public String getUsage(ICommandSender sender) {
+		return null;
+	}
 }
